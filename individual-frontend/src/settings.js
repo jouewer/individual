@@ -52,5 +52,5 @@ export default {
   /**
    * 底部版权文本内容
    */
-  footerContent: 'Copyright © 2024-2025 insistence.tech All Rights Reserved.'
+  footerContent: 'Copyright © 2024-2025 individual All Rights Reserved.'
 }

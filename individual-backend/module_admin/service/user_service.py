@@ -1,5 +1,4 @@
 import io
-import pandas as pd
 from datetime import datetime
 from fastapi import Request, UploadFile
 from sqlalchemy.ext.asyncio import AsyncSession

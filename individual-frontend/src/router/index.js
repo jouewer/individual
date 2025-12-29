@@ -71,6 +71,45 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/travel',
+    component: Layout,
+    redirect: '/travel/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/travel/index'),
+        name: 'Travel',
+        meta: { title: '足迹旅行', icon: 'guide', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/holiday',
+    component: Layout,
+    redirect: '/holiday/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/holiday/index'),
+        name: 'Holiday',
+        meta: { title: '节假快乐', icon: 'star', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/food',
+    component: Layout,
+    redirect: '/food/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/food/index'),
+        name: 'Food',
+        meta: { title: '每日美食', icon: 'shopping', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/user',
     component: Layout,
     hidden: true,

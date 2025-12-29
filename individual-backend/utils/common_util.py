@@ -1,6 +1,5 @@
 import io
 import os
-import pandas as pd
 import re
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, PatternFill
@@ -203,6 +202,7 @@ def export_list2excel(list_data: List):
     :param list_data: 数据列表
     :return: 字典信息对应excel的二进制数据
     """
+    import pandas as pd
     df = pd.DataFrame(list_data)
     binary_data = io.BytesIO()
     df.to_excel(binary_data, index=False, engine='openpyxl')

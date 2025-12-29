@@ -29,14 +29,21 @@
     <!-- 文件列表 -->
     <transition-group ref="uploadFileList" class="upload-file-list el-upload-list el-upload-list--text" name="el-fade-in-linear" tag="ul">
       <li :key="file.uid" class="el-upload-list__item ele-upload-list__item-content" v-for="(file, index) in fileList">
-        <el-link :href="`${baseUrl}${file.url}`" :underline="false" target="_blank">
+        <el-link :href="`${baseUrl}${file.url}`" :underline="false" target="_blank" v-if="!isVideo(file.url)">
           <span class="el-icon-document"> {{ getFileName(file.name) }} </span>
+        </el-link>
+        <el-link :underline="false" @click="handlePreview(file)" v-else>
+           <span class="el-icon-video-play"> {{ getFileName(file.name) }} (点击播放)</span>
         </el-link>
         <div class="ele-upload-list__item-content-action">
           <el-link :underline="false" @click="handleDelete(index)" type="danger" v-if="!disabled">删除</el-link>
         </div>
       </li>
     </transition-group>
+    <!-- 视频预览 -->
+    <el-dialog v-model="dialogVisible" title="视频预览" width="800px" append-to-body>
+      <video :src="dialogVideoUrl" controls style="width: 100%"></video>
+    </el-dialog>
   </div>
 </template>
 
@@ -98,6 +105,21 @@ const fileList = ref([]);
 const showTip = computed(
   () => props.isShowTip && (props.fileType || props.fileSize)
 );
+
+// 视频预览相关
+const dialogVisible = ref(false);
+const dialogVideoUrl = ref("");
+
+function isVideo(url) {
+  if (!url) return false;
+  const ext = url.substring(url.lastIndexOf(".") + 1).toLowerCase();
+  return ["mp4", "avi", "mov", "webm", "mkv"].includes(ext);
+}
+
+function handlePreview(file) {
+  dialogVideoUrl.value = baseUrl + file.url;
+  dialogVisible.value = true;
+}
 
 watch(() => props.modelValue, val => {
   if (val) {

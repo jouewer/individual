@@ -1,5 +1,5 @@
 from fastapi import FastAPI, Request
-from fastapi.exceptions import HTTPException
+from fastapi.exceptions import HTTPException, RequestValidationError
 from pydantic_validation_decorator import FieldValidationError
 from exceptions.exception import (
     AuthException,
@@ -63,6 +63,12 @@ def handle_exception(app: FastAPI):
         return JSONResponse(
             content=jsonable_encoder({'code': exc.status_code, 'msg': exc.detail}), status_code=exc.status_code
         )
+
+    # 处理参数验证异常
+    @app.exception_handler(RequestValidationError)
+    async def validation_exception_handler(request: Request, exc: RequestValidationError):
+        logger.error(f"Validation Error: {exc.errors()}")
+        return ResponseUtil.error(msg=f"参数验证失败: {exc.errors()}")
 
     # 处理其他异常
     @app.exception_handler(Exception)

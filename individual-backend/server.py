@@ -22,6 +22,8 @@ from module_admin.controller.post_controler import postController
 from module_admin.controller.role_controller import roleController
 from module_admin.controller.server_controller import serverController
 from module_admin.controller.user_controller import userController
+from module_admin.controller.travel_controller import travelController
+from module_admin.controller.holiday_controller import holidayController
 from module_generator.controller.gen_controller import genController
 from sub_applications.handle import handle_sub_applications
 from utils.common_util import worship
@@ -78,8 +80,16 @@ controller_list = [
     {'router': serverController, 'tags': ['系统监控-菜单管理']},
     {'router': cacheController, 'tags': ['系统监控-缓存监控']},
     {'router': commonController, 'tags': ['通用模块']},
+    {'router': travelController, 'tags': ['足迹旅行模块']},
+    {'router': holidayController, 'tags': ['节假快乐模块']},
     {'router': genController, 'tags': ['代码生成']},
 ]
 
 for controller in controller_list:
     app.include_router(router=controller.get('router'), tags=controller.get('tags'))
+    logger.info(f"Included router: {controller.get('router').prefix} tags={controller.get('tags')}")
+
+# 打印所有路由
+for route in app.routes:
+    if hasattr(route, 'path'):
+        logger.info(f'Route: {route.path}')

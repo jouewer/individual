@@ -209,3 +209,346 @@
 2025-12-30 09:13:43.685 | 0b879b3f5f654442bda63324b9cf2687 | INFO     | module_admin.controller.login_controller:get_login_user_routers:95 - 获取成功
 2025-12-30 09:13:44.731 | 7393aed1581546a8a276f742ce5a7396 | INFO     | module_admin.controller.login_controller:get_login_user_info:84 - 获取成功
 2025-12-30 09:13:44.761 | 6bc2dd7e193345f1a07fdccf3631ff4a | INFO     | module_admin.controller.login_controller:get_login_user_routers:95 - 获取成功
+2025-12-30 11:37:34.312 |  | INFO     | server:<module>:90 - Included router:  tags=['登录模块']
+2025-12-30 11:37:34.313 |  | INFO     | server:<module>:90 - Included router:  tags=['验证码模块']
+2025-12-30 11:37:34.364 |  | INFO     | server:<module>:90 - Included router: /system/user tags=['系统管理-用户管理']
+2025-12-30 11:37:34.431 |  | INFO     | server:<module>:90 - Included router: /system/role tags=['系统管理-角色管理']
+2025-12-30 11:37:34.508 |  | INFO     | server:<module>:90 - Included router: /system/menu tags=['系统管理-菜单管理']
+2025-12-30 11:37:34.529 |  | INFO     | server:<module>:90 - Included router: /system/dept tags=['系统管理-部门管理']
+2025-12-30 11:37:34.544 |  | INFO     | server:<module>:90 - Included router: /system/post tags=['系统管理-岗位管理']
+2025-12-30 11:37:34.576 |  | INFO     | server:<module>:90 - Included router: /system/dict tags=['系统管理-字典管理']
+2025-12-30 11:37:34.591 |  | INFO     | server:<module>:90 - Included router: /system/config tags=['系统管理-参数管理']
+2025-12-30 11:37:34.607 |  | INFO     | server:<module>:90 - Included router: /system/notice tags=['系统管理-通知公告管理']
+2025-12-30 11:37:34.632 |  | INFO     | server:<module>:90 - Included router: /monitor tags=['系统管理-日志管理']
+2025-12-30 11:37:34.643 |  | INFO     | server:<module>:90 - Included router: /monitor/online tags=['系统监控-在线用户']
+2025-12-30 11:37:34.678 |  | INFO     | server:<module>:90 - Included router: /monitor tags=['系统监控-定时任务']
+2025-12-30 11:37:34.679 |  | INFO     | server:<module>:90 - Included router: /monitor/server tags=['系统监控-菜单管理']
+2025-12-30 11:37:34.692 |  | INFO     | server:<module>:90 - Included router: /monitor/cache tags=['系统监控-缓存监控']
+2025-12-30 11:37:34.700 |  | INFO     | server:<module>:90 - Included router: /common tags=['通用模块']
+2025-12-30 11:37:34.709 |  | INFO     | server:<module>:90 - Included router: /travel tags=['足迹旅行模块']
+2025-12-30 11:37:34.718 |  | INFO     | server:<module>:90 - Included router: /holiday tags=['节假快乐模块']
+2025-12-30 11:37:34.780 |  | INFO     | server:<module>:90 - Included router: /tool/gen tags=['代码生成']
+2025-12-30 11:37:34.781 |  | INFO     | server:<module>:95 - Route: /openapi.json
+2025-12-30 11:37:34.781 |  | INFO     | server:<module>:95 - Route: /docs
+2025-12-30 11:37:34.782 |  | INFO     | server:<module>:95 - Route: /docs/oauth2-redirect
+2025-12-30 11:37:34.783 |  | INFO     | server:<module>:95 - Route: /redoc
+2025-12-30 11:37:34.783 |  | INFO     | server:<module>:95 - Route: /profile
+2025-12-30 11:37:34.784 |  | INFO     | server:<module>:95 - Route: /login
+2025-12-30 11:37:34.785 |  | INFO     | server:<module>:95 - Route: /getInfo
+2025-12-30 11:37:34.786 |  | INFO     | server:<module>:95 - Route: /getRouters
+2025-12-30 11:37:34.786 |  | INFO     | server:<module>:95 - Route: /register
+2025-12-30 11:37:34.787 |  | INFO     | server:<module>:95 - Route: /logout
+2025-12-30 11:37:34.788 |  | INFO     | server:<module>:95 - Route: /captchaImage
+2025-12-30 11:37:34.788 |  | INFO     | server:<module>:95 - Route: /system/user/deptTree
+2025-12-30 11:37:34.790 |  | INFO     | server:<module>:95 - Route: /system/user/list
+2025-12-30 11:37:34.791 |  | INFO     | server:<module>:95 - Route: /system/user
+2025-12-30 11:37:34.792 |  | INFO     | server:<module>:95 - Route: /system/user
+2025-12-30 11:37:34.793 |  | INFO     | server:<module>:95 - Route: /system/user/{user_ids}
+2025-12-30 11:37:34.795 |  | INFO     | server:<module>:95 - Route: /system/user/resetPwd
+2025-12-30 11:37:34.796 |  | INFO     | server:<module>:95 - Route: /system/user/changeStatus
+2025-12-30 11:37:34.797 |  | INFO     | server:<module>:95 - Route: /system/user/profile
+2025-12-30 11:37:34.797 |  | INFO     | server:<module>:95 - Route: /system/user/
+2025-12-30 11:37:34.798 |  | INFO     | server:<module>:95 - Route: /system/user/{user_id}
+2025-12-30 11:37:34.799 |  | INFO     | server:<module>:95 - Route: /system/user/profile/avatar
+2025-12-30 11:37:34.800 |  | INFO     | server:<module>:95 - Route: /system/user/profile
+2025-12-30 11:37:34.800 |  | INFO     | server:<module>:95 - Route: /system/user/profile/updatePwd
+2025-12-30 11:37:34.801 |  | INFO     | server:<module>:95 - Route: /system/user/importData
+2025-12-30 11:37:34.801 |  | INFO     | server:<module>:95 - Route: /system/user/importTemplate
+2025-12-30 11:37:34.803 |  | INFO     | server:<module>:95 - Route: /system/user/export
+2025-12-30 11:37:34.803 |  | INFO     | server:<module>:95 - Route: /system/user/authRole/{user_id}
+2025-12-30 11:37:34.804 |  | INFO     | server:<module>:95 - Route: /system/user/authRole
+2025-12-30 11:37:34.805 |  | INFO     | server:<module>:95 - Route: /system/role/deptTree/{role_id}
+2025-12-30 11:37:34.806 |  | INFO     | server:<module>:95 - Route: /system/role/list
+2025-12-30 11:37:34.807 |  | INFO     | server:<module>:95 - Route: /system/role
+2025-12-30 11:37:34.807 |  | INFO     | server:<module>:95 - Route: /system/role
+2025-12-30 11:37:34.808 |  | INFO     | server:<module>:95 - Route: /system/role/dataScope
+2025-12-30 11:37:34.809 |  | INFO     | server:<module>:95 - Route: /system/role/{role_ids}
+2025-12-30 11:37:34.810 |  | INFO     | server:<module>:95 - Route: /system/role/{role_id}
+2025-12-30 11:37:34.810 |  | INFO     | server:<module>:95 - Route: /system/role/export
+2025-12-30 11:37:34.811 |  | INFO     | server:<module>:95 - Route: /system/role/changeStatus
+2025-12-30 11:37:34.812 |  | INFO     | server:<module>:95 - Route: /system/role/authUser/allocatedList
+2025-12-30 11:37:34.813 |  | INFO     | server:<module>:95 - Route: /system/role/authUser/unallocatedList
+2025-12-30 11:37:34.813 |  | INFO     | server:<module>:95 - Route: /system/role/authUser/selectAll
+2025-12-30 11:37:34.814 |  | INFO     | server:<module>:95 - Route: /system/role/authUser/cancel
+2025-12-30 11:37:34.814 |  | INFO     | server:<module>:95 - Route: /system/role/authUser/cancelAll
+2025-12-30 11:37:34.815 |  | INFO     | server:<module>:95 - Route: /system/menu/treeselect
+2025-12-30 11:37:34.816 |  | INFO     | server:<module>:95 - Route: /system/menu/roleMenuTreeselect/{role_id}
+2025-12-30 11:37:34.817 |  | INFO     | server:<module>:95 - Route: /system/menu/list
+2025-12-30 11:37:34.817 |  | INFO     | server:<module>:95 - Route: /system/menu
+2025-12-30 11:37:34.818 |  | INFO     | server:<module>:95 - Route: /system/menu
+2025-12-30 11:37:34.818 |  | INFO     | server:<module>:95 - Route: /system/menu/{menu_ids}
+2025-12-30 11:37:34.820 |  | INFO     | server:<module>:95 - Route: /system/menu/{menu_id}
+2025-12-30 11:37:34.820 |  | INFO     | server:<module>:95 - Route: /system/dept/list/exclude/{dept_id}
+2025-12-30 11:37:34.821 |  | INFO     | server:<module>:95 - Route: /system/dept/list
+2025-12-30 11:37:34.821 |  | INFO     | server:<module>:95 - Route: /system/dept
+2025-12-30 11:37:34.822 |  | INFO     | server:<module>:95 - Route: /system/dept
+2025-12-30 11:37:34.823 |  | INFO     | server:<module>:95 - Route: /system/dept/{dept_ids}
+2025-12-30 11:37:34.823 |  | INFO     | server:<module>:95 - Route: /system/dept/{dept_id}
+2025-12-30 11:37:34.824 |  | INFO     | server:<module>:95 - Route: /system/post/list
+2025-12-30 11:37:34.825 |  | INFO     | server:<module>:95 - Route: /system/post
+2025-12-30 11:37:34.826 |  | INFO     | server:<module>:95 - Route: /system/post
+2025-12-30 11:37:34.827 |  | INFO     | server:<module>:95 - Route: /system/post/{post_ids}
+2025-12-30 11:37:34.828 |  | INFO     | server:<module>:95 - Route: /system/post/{post_id}
+2025-12-30 11:37:34.828 |  | INFO     | server:<module>:95 - Route: /system/post/export
+2025-12-30 11:37:34.829 |  | INFO     | server:<module>:95 - Route: /system/dict/type/list
+2025-12-30 11:37:34.830 |  | INFO     | server:<module>:95 - Route: /system/dict/type
+2025-12-30 11:37:34.831 |  | INFO     | server:<module>:95 - Route: /system/dict/type
+2025-12-30 11:37:34.831 |  | INFO     | server:<module>:95 - Route: /system/dict/type/refreshCache
+2025-12-30 11:37:34.832 |  | INFO     | server:<module>:95 - Route: /system/dict/type/{dict_ids}
+2025-12-30 11:37:34.832 |  | INFO     | server:<module>:95 - Route: /system/dict/type/optionselect
+2025-12-30 11:37:34.833 |  | INFO     | server:<module>:95 - Route: /system/dict/type/{dict_id}
+2025-12-30 11:37:34.834 |  | INFO     | server:<module>:95 - Route: /system/dict/type/export
+2025-12-30 11:37:34.835 |  | INFO     | server:<module>:95 - Route: /system/dict/data/type/{dict_type}
+2025-12-30 11:37:34.835 |  | INFO     | server:<module>:95 - Route: /system/dict/data/list
+2025-12-30 11:37:34.836 |  | INFO     | server:<module>:95 - Route: /system/dict/data
+2025-12-30 11:37:34.837 |  | INFO     | server:<module>:95 - Route: /system/dict/data
+2025-12-30 11:37:34.837 |  | INFO     | server:<module>:95 - Route: /system/dict/data/{dict_codes}
+2025-12-30 11:37:34.838 |  | INFO     | server:<module>:95 - Route: /system/dict/data/{dict_code}
+2025-12-30 11:37:34.839 |  | INFO     | server:<module>:95 - Route: /system/dict/data/export
+2025-12-30 11:37:34.840 |  | INFO     | server:<module>:95 - Route: /system/config/list
+2025-12-30 11:37:34.841 |  | INFO     | server:<module>:95 - Route: /system/config
+2025-12-30 11:37:34.842 |  | INFO     | server:<module>:95 - Route: /system/config
+2025-12-30 11:37:34.842 |  | INFO     | server:<module>:95 - Route: /system/config/refreshCache
+2025-12-30 11:37:34.843 |  | INFO     | server:<module>:95 - Route: /system/config/{config_ids}
+2025-12-30 11:37:34.844 |  | INFO     | server:<module>:95 - Route: /system/config/{config_id}
+2025-12-30 11:37:34.845 |  | INFO     | server:<module>:95 - Route: /system/config/configKey/{config_key}
+2025-12-30 11:37:34.846 |  | INFO     | server:<module>:95 - Route: /system/config/export
+2025-12-30 11:37:34.846 |  | INFO     | server:<module>:95 - Route: /system/notice/list
+2025-12-30 11:37:34.847 |  | INFO     | server:<module>:95 - Route: /system/notice
+2025-12-30 11:37:34.848 |  | INFO     | server:<module>:95 - Route: /system/notice
+2025-12-30 11:37:34.849 |  | INFO     | server:<module>:95 - Route: /system/notice/{notice_ids}
+2025-12-30 11:37:34.849 |  | INFO     | server:<module>:95 - Route: /system/notice/{notice_id}
+2025-12-30 11:37:34.850 |  | INFO     | server:<module>:95 - Route: /monitor/operlog/list
+2025-12-30 11:37:34.851 |  | INFO     | server:<module>:95 - Route: /monitor/operlog/clean
+2025-12-30 11:37:34.851 |  | INFO     | server:<module>:95 - Route: /monitor/operlog/{oper_ids}
+2025-12-30 11:37:34.852 |  | INFO     | server:<module>:95 - Route: /monitor/operlog/export
+2025-12-30 11:37:34.853 |  | INFO     | server:<module>:95 - Route: /monitor/logininfor/list
+2025-12-30 11:37:34.853 |  | INFO     | server:<module>:95 - Route: /monitor/logininfor/clean
+2025-12-30 11:37:34.854 |  | INFO     | server:<module>:95 - Route: /monitor/logininfor/{info_ids}
+2025-12-30 11:37:34.855 |  | INFO     | server:<module>:95 - Route: /monitor/logininfor/unlock/{user_name}
+2025-12-30 11:37:34.855 |  | INFO     | server:<module>:95 - Route: /monitor/logininfor/export
+2025-12-30 11:37:34.856 |  | INFO     | server:<module>:95 - Route: /monitor/online/list
+2025-12-30 11:37:34.857 |  | INFO     | server:<module>:95 - Route: /monitor/online/{token_ids}
+2025-12-30 11:37:34.858 |  | INFO     | server:<module>:95 - Route: /monitor/job/list
+2025-12-30 11:37:34.858 |  | INFO     | server:<module>:95 - Route: /monitor/job
+2025-12-30 11:37:34.859 |  | INFO     | server:<module>:95 - Route: /monitor/job
+2025-12-30 11:37:34.860 |  | INFO     | server:<module>:95 - Route: /monitor/job/changeStatus
+2025-12-30 11:37:34.860 |  | INFO     | server:<module>:95 - Route: /monitor/job/run
+2025-12-30 11:37:34.861 |  | INFO     | server:<module>:95 - Route: /monitor/job/{job_ids}
+2025-12-30 11:37:34.862 |  | INFO     | server:<module>:95 - Route: /monitor/job/{job_id}
+2025-12-30 11:37:34.862 |  | INFO     | server:<module>:95 - Route: /monitor/job/export
+2025-12-30 11:37:34.863 |  | INFO     | server:<module>:95 - Route: /monitor/jobLog/list
+2025-12-30 11:37:34.864 |  | INFO     | server:<module>:95 - Route: /monitor/jobLog/clean
+2025-12-30 11:37:34.865 |  | INFO     | server:<module>:95 - Route: /monitor/jobLog/{job_log_ids}
+2025-12-30 11:37:34.866 |  | INFO     | server:<module>:95 - Route: /monitor/jobLog/export
+2025-12-30 11:37:34.867 |  | INFO     | server:<module>:95 - Route: /monitor/server
+2025-12-30 11:37:34.867 |  | INFO     | server:<module>:95 - Route: /monitor/cache
+2025-12-30 11:37:34.868 |  | INFO     | server:<module>:95 - Route: /monitor/cache/getNames
+2025-12-30 11:37:34.869 |  | INFO     | server:<module>:95 - Route: /monitor/cache/getKeys/{cache_name}
+2025-12-30 11:37:34.870 |  | INFO     | server:<module>:95 - Route: /monitor/cache/getValue/{cache_name}/{cache_key}
+2025-12-30 11:37:34.871 |  | INFO     | server:<module>:95 - Route: /monitor/cache/clearCacheName/{cache_name}
+2025-12-30 11:37:34.872 |  | INFO     | server:<module>:95 - Route: /monitor/cache/clearCacheKey/{cache_key}
+2025-12-30 11:37:34.872 |  | INFO     | server:<module>:95 - Route: /monitor/cache/clearCacheAll
+2025-12-30 11:37:34.873 |  | INFO     | server:<module>:95 - Route: /common/upload
+2025-12-30 11:37:34.874 |  | INFO     | server:<module>:95 - Route: /common/download
+2025-12-30 11:37:34.874 |  | INFO     | server:<module>:95 - Route: /common/download/resource
+2025-12-30 11:37:34.875 |  | INFO     | server:<module>:95 - Route: /travel/test
+2025-12-30 11:37:34.876 |  | INFO     | server:<module>:95 - Route: /travel/list
+2025-12-30 11:37:34.876 |  | INFO     | server:<module>:95 - Route: /travel/{travel_id}
+2025-12-30 11:37:34.877 |  | INFO     | server:<module>:95 - Route: /travel
+2025-12-30 11:37:34.877 |  | INFO     | server:<module>:95 - Route: /travel
+2025-12-30 11:37:34.878 |  | INFO     | server:<module>:95 - Route: /travel/{travel_ids}
+2025-12-30 11:37:34.879 |  | INFO     | server:<module>:95 - Route: /holiday/list
+2025-12-30 11:37:34.880 |  | INFO     | server:<module>:95 - Route: /holiday/{holiday_id}
+2025-12-30 11:37:34.881 |  | INFO     | server:<module>:95 - Route: /holiday
+2025-12-30 11:37:34.881 |  | INFO     | server:<module>:95 - Route: /holiday
+2025-12-30 11:37:34.882 |  | INFO     | server:<module>:95 - Route: /holiday/{holiday_ids}
+2025-12-30 11:37:34.883 |  | INFO     | server:<module>:95 - Route: /tool/gen/list
+2025-12-30 11:37:34.884 |  | INFO     | server:<module>:95 - Route: /tool/gen/db/list
+2025-12-30 11:37:34.885 |  | INFO     | server:<module>:95 - Route: /tool/gen/importTable
+2025-12-30 11:37:34.886 |  | INFO     | server:<module>:95 - Route: /tool/gen
+2025-12-30 11:37:34.886 |  | INFO     | server:<module>:95 - Route: /tool/gen/{table_ids}
+2025-12-30 11:37:34.887 |  | INFO     | server:<module>:95 - Route: /tool/gen/createTable
+2025-12-30 11:37:34.888 |  | INFO     | server:<module>:95 - Route: /tool/gen/batchGenCode
+2025-12-30 11:37:34.888 |  | INFO     | server:<module>:95 - Route: /tool/gen/genCode/{table_name}
+2025-12-30 11:37:34.889 |  | INFO     | server:<module>:95 - Route: /tool/gen/{table_id}
+2025-12-30 11:37:34.890 |  | INFO     | server:<module>:95 - Route: /tool/gen/preview/{table_id}
+2025-12-30 11:37:34.891 |  | INFO     | server:<module>:95 - Route: /tool/gen/synchDb/{table_name}
+2025-12-30 11:37:39.004 |  | INFO     | server:<module>:90 - Included router:  tags=['登录模块']
+2025-12-30 11:37:39.005 |  | INFO     | server:<module>:90 - Included router:  tags=['验证码模块']
+2025-12-30 11:37:39.066 |  | INFO     | server:<module>:90 - Included router: /system/user tags=['系统管理-用户管理']
+2025-12-30 11:37:39.125 |  | INFO     | server:<module>:90 - Included router: /system/role tags=['系统管理-角色管理']
+2025-12-30 11:37:39.221 |  | INFO     | server:<module>:90 - Included router: /system/menu tags=['系统管理-菜单管理']
+2025-12-30 11:37:39.247 |  | INFO     | server:<module>:90 - Included router: /system/dept tags=['系统管理-部门管理']
+2025-12-30 11:37:39.267 |  | INFO     | server:<module>:90 - Included router: /system/post tags=['系统管理-岗位管理']
+2025-12-30 11:37:39.315 |  | INFO     | server:<module>:90 - Included router: /system/dict tags=['系统管理-字典管理']
+2025-12-30 11:37:39.335 |  | INFO     | server:<module>:90 - Included router: /system/config tags=['系统管理-参数管理']
+2025-12-30 11:37:39.349 |  | INFO     | server:<module>:90 - Included router: /system/notice tags=['系统管理-通知公告管理']
+2025-12-30 11:37:39.375 |  | INFO     | server:<module>:90 - Included router: /monitor tags=['系统管理-日志管理']
+2025-12-30 11:37:39.382 |  | INFO     | server:<module>:90 - Included router: /monitor/online tags=['系统监控-在线用户']
+2025-12-30 11:37:39.423 |  | INFO     | server:<module>:90 - Included router: /monitor tags=['系统监控-定时任务']
+2025-12-30 11:37:39.426 |  | INFO     | server:<module>:90 - Included router: /monitor/server tags=['系统监控-菜单管理']
+2025-12-30 11:37:39.439 |  | INFO     | server:<module>:90 - Included router: /monitor/cache tags=['系统监控-缓存监控']
+2025-12-30 11:37:39.443 |  | INFO     | server:<module>:90 - Included router: /common tags=['通用模块']
+2025-12-30 11:37:39.451 |  | INFO     | server:<module>:90 - Included router: /travel tags=['足迹旅行模块']
+2025-12-30 11:37:39.458 |  | INFO     | server:<module>:90 - Included router: /holiday tags=['节假快乐模块']
+2025-12-30 11:37:39.504 |  | INFO     | server:<module>:90 - Included router: /tool/gen tags=['代码生成']
+2025-12-30 11:37:39.504 |  | INFO     | server:<module>:95 - Route: /openapi.json
+2025-12-30 11:37:39.506 |  | INFO     | server:<module>:95 - Route: /docs
+2025-12-30 11:37:39.506 |  | INFO     | server:<module>:95 - Route: /docs/oauth2-redirect
+2025-12-30 11:37:39.507 |  | INFO     | server:<module>:95 - Route: /redoc
+2025-12-30 11:37:39.508 |  | INFO     | server:<module>:95 - Route: /profile
+2025-12-30 11:37:39.508 |  | INFO     | server:<module>:95 - Route: /login
+2025-12-30 11:37:39.510 |  | INFO     | server:<module>:95 - Route: /getInfo
+2025-12-30 11:37:39.510 |  | INFO     | server:<module>:95 - Route: /getRouters
+2025-12-30 11:37:39.511 |  | INFO     | server:<module>:95 - Route: /register
+2025-12-30 11:37:39.512 |  | INFO     | server:<module>:95 - Route: /logout
+2025-12-30 11:37:39.512 |  | INFO     | server:<module>:95 - Route: /captchaImage
+2025-12-30 11:37:39.513 |  | INFO     | server:<module>:95 - Route: /system/user/deptTree
+2025-12-30 11:37:39.514 |  | INFO     | server:<module>:95 - Route: /system/user/list
+2025-12-30 11:37:39.515 |  | INFO     | server:<module>:95 - Route: /system/user
+2025-12-30 11:37:39.515 |  | INFO     | server:<module>:95 - Route: /system/user
+2025-12-30 11:37:39.516 |  | INFO     | server:<module>:95 - Route: /system/user/{user_ids}
+2025-12-30 11:37:39.517 |  | INFO     | server:<module>:95 - Route: /system/user/resetPwd
+2025-12-30 11:37:39.518 |  | INFO     | server:<module>:95 - Route: /system/user/changeStatus
+2025-12-30 11:37:39.519 |  | INFO     | server:<module>:95 - Route: /system/user/profile
+2025-12-30 11:37:39.520 |  | INFO     | server:<module>:95 - Route: /system/user/
+2025-12-30 11:37:39.521 |  | INFO     | server:<module>:95 - Route: /system/user/{user_id}
+2025-12-30 11:37:39.522 |  | INFO     | server:<module>:95 - Route: /system/user/profile/avatar
+2025-12-30 11:37:39.522 |  | INFO     | server:<module>:95 - Route: /system/user/profile
+2025-12-30 11:37:39.523 |  | INFO     | server:<module>:95 - Route: /system/user/profile/updatePwd
+2025-12-30 11:37:39.524 |  | INFO     | server:<module>:95 - Route: /system/user/importData
+2025-12-30 11:37:39.525 |  | INFO     | server:<module>:95 - Route: /system/user/importTemplate
+2025-12-30 11:37:39.526 |  | INFO     | server:<module>:95 - Route: /system/user/export
+2025-12-30 11:37:39.526 |  | INFO     | server:<module>:95 - Route: /system/user/authRole/{user_id}
+2025-12-30 11:37:39.527 |  | INFO     | server:<module>:95 - Route: /system/user/authRole
+2025-12-30 11:37:39.528 |  | INFO     | server:<module>:95 - Route: /system/role/deptTree/{role_id}
+2025-12-30 11:37:39.528 |  | INFO     | server:<module>:95 - Route: /system/role/list
+2025-12-30 11:37:39.529 |  | INFO     | server:<module>:95 - Route: /system/role
+2025-12-30 11:37:39.530 |  | INFO     | server:<module>:95 - Route: /system/role
+2025-12-30 11:37:39.530 |  | INFO     | server:<module>:95 - Route: /system/role/dataScope
+2025-12-30 11:37:39.531 |  | INFO     | server:<module>:95 - Route: /system/role/{role_ids}
+2025-12-30 11:37:39.531 |  | INFO     | server:<module>:95 - Route: /system/role/{role_id}
+2025-12-30 11:37:39.532 |  | INFO     | server:<module>:95 - Route: /system/role/export
+2025-12-30 11:37:39.533 |  | INFO     | server:<module>:95 - Route: /system/role/changeStatus
+2025-12-30 11:37:39.533 |  | INFO     | server:<module>:95 - Route: /system/role/authUser/allocatedList
+2025-12-30 11:37:39.534 |  | INFO     | server:<module>:95 - Route: /system/role/authUser/unallocatedList
+2025-12-30 11:37:39.534 |  | INFO     | server:<module>:95 - Route: /system/role/authUser/selectAll
+2025-12-30 11:37:39.535 |  | INFO     | server:<module>:95 - Route: /system/role/authUser/cancel
+2025-12-30 11:37:39.536 |  | INFO     | server:<module>:95 - Route: /system/role/authUser/cancelAll
+2025-12-30 11:37:39.536 |  | INFO     | server:<module>:95 - Route: /system/menu/treeselect
+2025-12-30 11:37:39.537 |  | INFO     | server:<module>:95 - Route: /system/menu/roleMenuTreeselect/{role_id}
+2025-12-30 11:37:39.538 |  | INFO     | server:<module>:95 - Route: /system/menu/list
+2025-12-30 11:37:39.538 |  | INFO     | server:<module>:95 - Route: /system/menu
+2025-12-30 11:37:39.539 |  | INFO     | server:<module>:95 - Route: /system/menu
+2025-12-30 11:37:39.540 |  | INFO     | server:<module>:95 - Route: /system/menu/{menu_ids}
+2025-12-30 11:37:39.541 |  | INFO     | server:<module>:95 - Route: /system/menu/{menu_id}
+2025-12-30 11:37:39.542 |  | INFO     | server:<module>:95 - Route: /system/dept/list/exclude/{dept_id}
+2025-12-30 11:37:39.542 |  | INFO     | server:<module>:95 - Route: /system/dept/list
+2025-12-30 11:37:39.543 |  | INFO     | server:<module>:95 - Route: /system/dept
+2025-12-30 11:37:39.544 |  | INFO     | server:<module>:95 - Route: /system/dept
+2025-12-30 11:37:39.544 |  | INFO     | server:<module>:95 - Route: /system/dept/{dept_ids}
+2025-12-30 11:37:39.545 |  | INFO     | server:<module>:95 - Route: /system/dept/{dept_id}
+2025-12-30 11:37:39.546 |  | INFO     | server:<module>:95 - Route: /system/post/list
+2025-12-30 11:37:39.547 |  | INFO     | server:<module>:95 - Route: /system/post
+2025-12-30 11:37:39.547 |  | INFO     | server:<module>:95 - Route: /system/post
+2025-12-30 11:37:39.548 |  | INFO     | server:<module>:95 - Route: /system/post/{post_ids}
+2025-12-30 11:37:39.549 |  | INFO     | server:<module>:95 - Route: /system/post/{post_id}
+2025-12-30 11:37:39.549 |  | INFO     | server:<module>:95 - Route: /system/post/export
+2025-12-30 11:37:39.550 |  | INFO     | server:<module>:95 - Route: /system/dict/type/list
+2025-12-30 11:37:39.550 |  | INFO     | server:<module>:95 - Route: /system/dict/type
+2025-12-30 11:37:39.551 |  | INFO     | server:<module>:95 - Route: /system/dict/type
+2025-12-30 11:37:39.552 |  | INFO     | server:<module>:95 - Route: /system/dict/type/refreshCache
+2025-12-30 11:37:39.552 |  | INFO     | server:<module>:95 - Route: /system/dict/type/{dict_ids}
+2025-12-30 11:37:39.553 |  | INFO     | server:<module>:95 - Route: /system/dict/type/optionselect
+2025-12-30 11:37:39.553 |  | INFO     | server:<module>:95 - Route: /system/dict/type/{dict_id}
+2025-12-30 11:37:39.554 |  | INFO     | server:<module>:95 - Route: /system/dict/type/export
+2025-12-30 11:37:39.555 |  | INFO     | server:<module>:95 - Route: /system/dict/data/type/{dict_type}
+2025-12-30 11:37:39.555 |  | INFO     | server:<module>:95 - Route: /system/dict/data/list
+2025-12-30 11:37:39.556 |  | INFO     | server:<module>:95 - Route: /system/dict/data
+2025-12-30 11:37:39.557 |  | INFO     | server:<module>:95 - Route: /system/dict/data
+2025-12-30 11:37:39.558 |  | INFO     | server:<module>:95 - Route: /system/dict/data/{dict_codes}
+2025-12-30 11:37:39.559 |  | INFO     | server:<module>:95 - Route: /system/dict/data/{dict_code}
+2025-12-30 11:37:39.559 |  | INFO     | server:<module>:95 - Route: /system/dict/data/export
+2025-12-30 11:37:39.560 |  | INFO     | server:<module>:95 - Route: /system/config/list
+2025-12-30 11:37:39.560 |  | INFO     | server:<module>:95 - Route: /system/config
+2025-12-30 11:37:39.561 |  | INFO     | server:<module>:95 - Route: /system/config
+2025-12-30 11:37:39.561 |  | INFO     | server:<module>:95 - Route: /system/config/refreshCache
+2025-12-30 11:37:39.562 |  | INFO     | server:<module>:95 - Route: /system/config/{config_ids}
+2025-12-30 11:37:39.563 |  | INFO     | server:<module>:95 - Route: /system/config/{config_id}
+2025-12-30 11:37:39.563 |  | INFO     | server:<module>:95 - Route: /system/config/configKey/{config_key}
+2025-12-30 11:37:39.564 |  | INFO     | server:<module>:95 - Route: /system/config/export
+2025-12-30 11:37:39.564 |  | INFO     | server:<module>:95 - Route: /system/notice/list
+2025-12-30 11:37:39.565 |  | INFO     | server:<module>:95 - Route: /system/notice
+2025-12-30 11:37:39.565 |  | INFO     | server:<module>:95 - Route: /system/notice
+2025-12-30 11:37:39.566 |  | INFO     | server:<module>:95 - Route: /system/notice/{notice_ids}
+2025-12-30 11:37:39.567 |  | INFO     | server:<module>:95 - Route: /system/notice/{notice_id}
+2025-12-30 11:37:39.568 |  | INFO     | server:<module>:95 - Route: /monitor/operlog/list
+2025-12-30 11:37:39.568 |  | INFO     | server:<module>:95 - Route: /monitor/operlog/clean
+2025-12-30 11:37:39.569 |  | INFO     | server:<module>:95 - Route: /monitor/operlog/{oper_ids}
+2025-12-30 11:37:39.570 |  | INFO     | server:<module>:95 - Route: /monitor/operlog/export
+2025-12-30 11:37:39.571 |  | INFO     | server:<module>:95 - Route: /monitor/logininfor/list
+2025-12-30 11:37:39.571 |  | INFO     | server:<module>:95 - Route: /monitor/logininfor/clean
+2025-12-30 11:37:39.572 |  | INFO     | server:<module>:95 - Route: /monitor/logininfor/{info_ids}
+2025-12-30 11:37:39.573 |  | INFO     | server:<module>:95 - Route: /monitor/logininfor/unlock/{user_name}
+2025-12-30 11:37:39.573 |  | INFO     | server:<module>:95 - Route: /monitor/logininfor/export
+2025-12-30 11:37:39.574 |  | INFO     | server:<module>:95 - Route: /monitor/online/list
+2025-12-30 11:37:39.574 |  | INFO     | server:<module>:95 - Route: /monitor/online/{token_ids}
+2025-12-30 11:37:39.575 |  | INFO     | server:<module>:95 - Route: /monitor/job/list
+2025-12-30 11:37:39.575 |  | INFO     | server:<module>:95 - Route: /monitor/job
+2025-12-30 11:37:39.576 |  | INFO     | server:<module>:95 - Route: /monitor/job
+2025-12-30 11:37:39.576 |  | INFO     | server:<module>:95 - Route: /monitor/job/changeStatus
+2025-12-30 11:37:39.577 |  | INFO     | server:<module>:95 - Route: /monitor/job/run
+2025-12-30 11:37:39.577 |  | INFO     | server:<module>:95 - Route: /monitor/job/{job_ids}
+2025-12-30 11:37:39.578 |  | INFO     | server:<module>:95 - Route: /monitor/job/{job_id}
+2025-12-30 11:37:39.579 |  | INFO     | server:<module>:95 - Route: /monitor/job/export
+2025-12-30 11:37:39.579 |  | INFO     | server:<module>:95 - Route: /monitor/jobLog/list
+2025-12-30 11:37:39.580 |  | INFO     | server:<module>:95 - Route: /monitor/jobLog/clean
+2025-12-30 11:37:39.581 |  | INFO     | server:<module>:95 - Route: /monitor/jobLog/{job_log_ids}
+2025-12-30 11:37:39.581 |  | INFO     | server:<module>:95 - Route: /monitor/jobLog/export
+2025-12-30 11:37:39.582 |  | INFO     | server:<module>:95 - Route: /monitor/server
+2025-12-30 11:37:39.583 |  | INFO     | server:<module>:95 - Route: /monitor/cache
+2025-12-30 11:37:39.584 |  | INFO     | server:<module>:95 - Route: /monitor/cache/getNames
+2025-12-30 11:37:39.584 |  | INFO     | server:<module>:95 - Route: /monitor/cache/getKeys/{cache_name}
+2025-12-30 11:37:39.585 |  | INFO     | server:<module>:95 - Route: /monitor/cache/getValue/{cache_name}/{cache_key}
+2025-12-30 11:37:39.586 |  | INFO     | server:<module>:95 - Route: /monitor/cache/clearCacheName/{cache_name}
+2025-12-30 11:37:39.587 |  | INFO     | server:<module>:95 - Route: /monitor/cache/clearCacheKey/{cache_key}
+2025-12-30 11:37:39.587 |  | INFO     | server:<module>:95 - Route: /monitor/cache/clearCacheAll
+2025-12-30 11:37:39.588 |  | INFO     | server:<module>:95 - Route: /common/upload
+2025-12-30 11:37:39.589 |  | INFO     | server:<module>:95 - Route: /common/download
+2025-12-30 11:37:39.589 |  | INFO     | server:<module>:95 - Route: /common/download/resource
+2025-12-30 11:37:39.590 |  | INFO     | server:<module>:95 - Route: /travel/test
+2025-12-30 11:37:39.591 |  | INFO     | server:<module>:95 - Route: /travel/list
+2025-12-30 11:37:39.592 |  | INFO     | server:<module>:95 - Route: /travel/{travel_id}
+2025-12-30 11:37:39.592 |  | INFO     | server:<module>:95 - Route: /travel
+2025-12-30 11:37:39.593 |  | INFO     | server:<module>:95 - Route: /travel
+2025-12-30 11:37:39.594 |  | INFO     | server:<module>:95 - Route: /travel/{travel_ids}
+2025-12-30 11:37:39.594 |  | INFO     | server:<module>:95 - Route: /holiday/list
+2025-12-30 11:37:39.595 |  | INFO     | server:<module>:95 - Route: /holiday/{holiday_id}
+2025-12-30 11:37:39.596 |  | INFO     | server:<module>:95 - Route: /holiday
+2025-12-30 11:37:39.596 |  | INFO     | server:<module>:95 - Route: /holiday
+2025-12-30 11:37:39.598 |  | INFO     | server:<module>:95 - Route: /holiday/{holiday_ids}
+2025-12-30 11:37:39.598 |  | INFO     | server:<module>:95 - Route: /tool/gen/list
+2025-12-30 11:37:39.599 |  | INFO     | server:<module>:95 - Route: /tool/gen/db/list
+2025-12-30 11:37:39.600 |  | INFO     | server:<module>:95 - Route: /tool/gen/importTable
+2025-12-30 11:37:39.602 |  | INFO     | server:<module>:95 - Route: /tool/gen
+2025-12-30 11:37:39.602 |  | INFO     | server:<module>:95 - Route: /tool/gen/{table_ids}
+2025-12-30 11:37:39.603 |  | INFO     | server:<module>:95 - Route: /tool/gen/createTable
+2025-12-30 11:37:39.604 |  | INFO     | server:<module>:95 - Route: /tool/gen/batchGenCode
+2025-12-30 11:37:39.604 |  | INFO     | server:<module>:95 - Route: /tool/gen/genCode/{table_name}
+2025-12-30 11:37:39.605 |  | INFO     | server:<module>:95 - Route: /tool/gen/{table_id}
+2025-12-30 11:37:39.606 |  | INFO     | server:<module>:95 - Route: /tool/gen/preview/{table_id}
+2025-12-30 11:37:39.606 |  | INFO     | server:<module>:95 - Route: /tool/gen/synchDb/{table_name}
+2025-12-30 11:37:39.661 |  | INFO     | server:lifespan:36 - ⏰️ RuoYi-FastAPI开始启动
+2025-12-30 11:37:39.663 |  | INFO     | config.get_db:init_create_table:21 - 🔎 初始化数据库连接...
+2025-12-30 11:37:39.724 |  | INFO     | config.get_db:init_create_table:24 - ✅️ 数据库连接成功
+2025-12-30 11:37:39.724 |  | INFO     | config.get_redis:create_redis_pool:22 - 🔎 开始连接redis...
+2025-12-30 11:37:39.727 |  | INFO     | config.get_redis:create_redis_pool:35 - ✅️ redis连接成功
+2025-12-30 11:37:39.867 |  | INFO     | config.get_scheduler:init_system_scheduler:134 - 🔎 开始启动定时任务...
+2025-12-30 11:37:39.891 |  | INFO     | config.get_scheduler:init_system_scheduler:142 - ✅️ 系统初始定时任务加载成功
+2025-12-30 11:37:39.891 |  | INFO     | server:lifespan:43 - 🚀 RuoYi-FastAPI启动成功
+2025-12-30 11:38:23.371 | c1e7a07b587a4e26b36891c99926a19f | WARNING  | module_admin.service.login_service:get_current_user:210 - 用户token已失效，请重新登录
+2025-12-30 11:38:28.204 | 238aabf1abce4ee09fd6a2edec1a2ead | INFO     | module_admin.controller.login_controller:get_login_user_info:84 - 获取成功
+2025-12-30 11:38:28.232 | 69174fb492174bd8a0814ae6529264e5 | INFO     | module_admin.controller.login_controller:get_login_user_routers:95 - 获取成功
+2025-12-30 11:41:11.955 | b6f6e5961b544664bfadf73a93faee58 | INFO     | module_admin.controller.login_controller:get_login_user_info:84 - 获取成功
+2025-12-30 11:41:12.003 | e727ba130bf44dd086b2cd3422056d78 | INFO     | module_admin.controller.login_controller:get_login_user_routers:95 - 获取成功

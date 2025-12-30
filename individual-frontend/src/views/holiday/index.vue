@@ -790,11 +790,17 @@ function submitForm() {
   proxy.$refs["holidayRef"].validate(valid => {
     if (valid) {
       if (form.value.id != undefined) {
-        updateHoliday(form.value).then(response => {
-          ElMessage.success("修改成功");
-          open.value = false;
-          getList();
-        });
+        ElMessageBox.confirm('是否确认修改？', "提示", {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning"
+        }).then(() => {
+          updateHoliday(form.value).then(response => {
+            ElMessage.success("修改成功");
+            open.value = false;
+            getList();
+          });
+        }).catch(() => {});
       } else {
         addHoliday(form.value).then(response => {
           ElMessage.success("新增成功");

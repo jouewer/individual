@@ -23,6 +23,49 @@ class HolidayScheduleModel(BaseModel):
     location_name: Optional[str] = None
     address: Optional[str] = None
     latitude: Optional[float] = None
+    longitude: Optional[float] = None
+    
+    content: Optional[str] = None
+    description: Optional[str] = None
+    preparation: Optional[str] = None
+    shopping_list: Optional[str] = None
+    required_items: Optional[str] = None
+    participants: Optional[str] = None
+    
+    budget: Optional[float] = None
+    currency: Optional[str] = None
+    actual_cost: Optional[float] = None
+    
+    cover_image: Optional[str] = None
+    images: Optional[str] = None
+    videos: Optional[str] = None
+    recipes: Optional[str] = None
+    documents: Optional[str] = None
+    
+    status: Optional[str] = None
+    reminder_time: Optional[datetime] = None
+    is_repeat: Optional[int] = 0
+    repeat_rule: Optional[str] = None
+    
+    rating: Optional[int] = None
+    review: Optional[str] = None
+    highlights: Optional[str] = None
+    lessons_learned: Optional[str] = None
+    
+    tags: Optional[str] = None
+    mood: Optional[str] = None
+    energy_level: Optional[int] = None
+    satisfaction_level: Optional[int] = None
+    
+    related_footprint_id: Optional[int] = None
+    template_id: Optional[int] = None
+    
+    privacy_level: Optional[str] = '仅自己'
+    share_with: Optional[str] = None
+    is_active: Optional[int] = 1
+    
+    checklist: Optional[str] = None
+    visibility: Optional[str] = None
     create_time: Optional[datetime] = None
     update_time: Optional[datetime] = None
 
@@ -54,6 +97,49 @@ class HolidayScheduleCreate(BaseModel):
     location_name: Optional[str] = None
     address: Optional[str] = None
     latitude: Optional[float] = None
+    longitude: Optional[float] = None
+    
+    content: Optional[str] = None
+    description: Optional[str] = None
+    preparation: Optional[str] = None
+    shopping_list: Optional[str] = None
+    required_items: Optional[str] = None
+    participants: Optional[str] = None
+    
+    budget: Optional[float] = None
+    currency: Optional[str] = None
+    actual_cost: Optional[float] = None
+    
+    cover_image: Optional[str] = None
+    images: Optional[str] = None
+    videos: Optional[str] = None
+    recipes: Optional[str] = None
+    documents: Optional[str] = None
+    
+    status: Optional[str] = None
+    reminder_time: Optional[datetime] = None
+    is_repeat: Optional[int] = 0
+    repeat_rule: Optional[str] = None
+    
+    rating: Optional[int] = None
+    review: Optional[str] = None
+    highlights: Optional[str] = None
+    lessons_learned: Optional[str] = None
+    
+    tags: Optional[str] = None
+    mood: Optional[str] = None
+    energy_level: Optional[int] = None
+    satisfaction_level: Optional[int] = None
+    
+    related_footprint_id: Optional[int] = None
+    template_id: Optional[int] = None
+    
+    privacy_level: Optional[str] = '仅自己'
+    share_with: Optional[str] = None
+    is_active: Optional[int] = 1
+    
+    checklist: Optional[str] = None
+    visibility: Optional[str] = None
 
     @model_validator(mode='before')
     @classmethod
@@ -84,6 +170,49 @@ class HolidayScheduleUpdate(BaseModel):
     location_name: Optional[str] = None
     address: Optional[str] = None
     latitude: Optional[float] = None
+    longitude: Optional[float] = None
+    
+    content: Optional[str] = None
+    description: Optional[str] = None
+    preparation: Optional[str] = None
+    shopping_list: Optional[str] = None
+    required_items: Optional[str] = None
+    participants: Optional[str] = None
+    
+    budget: Optional[float] = None
+    currency: Optional[str] = None
+    actual_cost: Optional[float] = None
+    
+    cover_image: Optional[str] = None
+    images: Optional[str] = None
+    videos: Optional[str] = None
+    recipes: Optional[str] = None
+    documents: Optional[str] = None
+    
+    status: Optional[str] = None
+    reminder_time: Optional[datetime] = None
+    is_repeat: Optional[int] = 0
+    repeat_rule: Optional[str] = None
+    
+    rating: Optional[int] = None
+    review: Optional[str] = None
+    highlights: Optional[str] = None
+    lessons_learned: Optional[str] = None
+    
+    tags: Optional[str] = None
+    mood: Optional[str] = None
+    energy_level: Optional[int] = None
+    satisfaction_level: Optional[int] = None
+    
+    related_footprint_id: Optional[int] = None
+    template_id: Optional[int] = None
+    
+    privacy_level: Optional[str] = '仅自己'
+    share_with: Optional[str] = None
+    is_active: Optional[int] = 1
+    
+    checklist: Optional[str] = None
+    visibility: Optional[str] = None
 
     @model_validator(mode='before')
     @classmethod

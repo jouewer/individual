@@ -1,11 +1,35 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from module_admin.dao.holiday_dao import HolidayDao
 from module_admin.entity.do.holiday_do import HolidaySchedule
-from module_admin.entity.vo.holiday_vo import HolidayScheduleQuery, HolidayScheduleCreate, HolidayScheduleUpdate
+from module_admin.entity.vo.holiday_vo import HolidayScheduleQuery, HolidayScheduleCreate, HolidayScheduleUpdate, HolidayScheduleModel
 from utils.response_util import ResponseUtil
 from datetime import datetime
+import json
 
 class HolidayService:
+    @staticmethod
+    def _ensure_json_list(value):
+        """
+        Ensure the value is a valid JSON list string.
+        If it's a comma-separated string, convert to JSON list.
+        """
+        if not value:
+            return None
+        try:
+            # Try parsing as JSON first
+            parsed = json.loads(value)
+            if isinstance(parsed, list):
+                return value
+            # If valid JSON but not a list (e.g. quoted string), wrap in list?
+            # Or assume it's just a value that should be in a list?
+            return json.dumps([parsed], ensure_ascii=False)
+        except (json.JSONDecodeError, TypeError):
+            # Not valid JSON, assume comma-separated string
+            if isinstance(value, str):
+                items = [item.strip() for item in value.split(',') if item.strip()]
+                return json.dumps(items, ensure_ascii=False)
+            return value
+
     @classmethod
     async def get_holiday_list(cls, query: HolidayScheduleQuery, db: AsyncSession):
         result = await HolidayDao.get_holiday_list(db, query, is_page=True)
@@ -15,28 +39,23 @@ class HolidayService:
     async def get_holiday_detail(cls, holiday_id: int, db: AsyncSession):
         holiday = await HolidayDao.get_holiday_detail_by_id(db, holiday_id)
         if holiday:
-            return ResponseUtil.success(data=holiday)
+            return ResponseUtil.success(data=HolidayScheduleModel.model_validate(holiday))
         return ResponseUtil.failure(msg="Holiday schedule not found")
 
     @classmethod
     async def add_holiday(cls, holiday_create: HolidayScheduleCreate, db: AsyncSession, current_user):
-        new_holiday = HolidaySchedule(
-            user_id=current_user.user.user_id,
-            holiday_name=holiday_create.holiday_name,
-            schedule_title=holiday_create.schedule_title,
-            holiday_date=holiday_create.holiday_date,
-            start_time=holiday_create.start_time,
-            end_time=holiday_create.end_time,
-            holiday_type=holiday_create.holiday_type,
-            schedule_type=holiday_create.schedule_type,
-            location_name=holiday_create.location_name,
-            address=holiday_create.address,
-            latitude=holiday_create.latitude,
-            all_day=holiday_create.all_day,
-            duration_minutes=holiday_create.duration_minutes,
-            create_time=datetime.now(),
-            update_time=datetime.now()
-        )
+        data = holiday_create.model_dump()
+        json_fields = ['shopping_list', 'required_items', 'participants', 'images', 'videos', 'recipes', 'documents', 'highlights', 'tags', 'share_with', 'checklist']
+        
+        for field in json_fields:
+            if field in data:
+                data[field] = cls._ensure_json_list(data[field])
+
+        data['user_id'] = current_user.user.user_id
+        data['create_time'] = datetime.now()
+        data['update_time'] = datetime.now()
+        
+        new_holiday = HolidaySchedule(**data)
         
         try:
             await HolidayDao.add_holiday(db, new_holiday)
@@ -48,8 +67,15 @@ class HolidayService:
 
     @classmethod
     async def update_holiday(cls, holiday_update: HolidayScheduleUpdate, db: AsyncSession):
+        update_data = holiday_update.model_dump(exclude_unset=True)
+        json_fields = ['shopping_list', 'required_items', 'participants', 'images', 'videos', 'recipes', 'documents', 'highlights', 'tags', 'share_with', 'checklist']
+        
+        for field in json_fields:
+            if field in update_data:
+                update_data[field] = cls._ensure_json_list(update_data[field])
+
         try:
-            await HolidayDao.update_holiday(db, holiday_update.id, holiday_update.model_dump(exclude_unset=True))
+            await HolidayDao.update_holiday(db, holiday_update.id, update_data)
             await db.commit()
             return ResponseUtil.success(msg="Updated successfully")
         except Exception as e:

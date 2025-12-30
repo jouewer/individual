@@ -110,6 +110,58 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/plant',
+    component: Layout,
+    redirect: '/plant/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/plant/index'),
+        name: 'Plant',
+        meta: { title: '植物生长', icon: 'tree', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/action',
+    component: Layout,
+    redirect: '/action/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/action/index'),
+        name: 'Action',
+        meta: { title: '动作检测', icon: 'eye-open', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/camera',
+    component: Layout,
+    redirect: '/camera/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/camera/index'),
+        name: 'Camera',
+        meta: { title: '摄像管理', icon: 'monitor', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/device',
+    component: Layout,
+    redirect: '/device/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/device/index'),
+        name: 'Device',
+        meta: { title: '电子设备', icon: 'phone', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/user',
     component: Layout,
     hidden: true,

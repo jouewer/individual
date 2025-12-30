@@ -1,0 +1,15 @@
+<template>
+  <div class="app-container">
+    <el-card>
+      <div style="text-align: center; padding: 50px;">
+        <h2>欢迎访问植物生长页面</h2>
+      </div>
+    </el-card>
+  </div>
+</template>
+
+<script setup>
+</script>
+
+<style scoped>
+</style>

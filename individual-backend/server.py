@@ -24,6 +24,8 @@ from module_admin.controller.server_controller import serverController
 from module_admin.controller.user_controller import userController
 from module_admin.controller.travel_controller import travelController
 from module_admin.controller.holiday_controller import holidayController
+from module_admin.controller.food_controller import foodController
+from module_admin.controller.camera_controller import cameraController
 from module_generator.controller.gen_controller import genController
 from sub_applications.handle import handle_sub_applications
 from utils.common_util import worship
@@ -82,6 +84,8 @@ controller_list = [
     {'router': commonController, 'tags': ['通用模块']},
     {'router': travelController, 'tags': ['足迹旅行模块']},
     {'router': holidayController, 'tags': ['节假快乐模块']},
+    {'router': foodController, 'tags': ['美食日记模块']},
+    {'router': cameraController, 'tags': ['摄像头模块']},
     {'router': genController, 'tags': ['代码生成']},
 ]
 

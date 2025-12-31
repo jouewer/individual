@@ -97,6 +97,19 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/shopping',
+    component: Layout,
+    redirect: '/shopping/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/shopping/index'),
+        name: 'Shopping',
+        meta: { title: '节日购物', icon: 'shopping', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/food',
     component: Layout,
     redirect: '/food/index',

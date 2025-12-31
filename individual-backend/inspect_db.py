@@ -10,8 +10,8 @@ engine = create_engine(SYNC_DATABASE_URL)
 inspector = inspect(engine)
 from sqlalchemy import text
 
-columns = inspector.get_columns('sxt_camera')
-pk = inspector.get_pk_constraint('sxt_camera')
+columns = inspector.get_columns('plant_growth')
+pk = inspector.get_pk_constraint('plant_growth')
 print(f"PK: {pk}")
 for col in columns:
     print(f"Column: {col['name']}, Type: {col['type']}")

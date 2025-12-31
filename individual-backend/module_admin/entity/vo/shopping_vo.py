@@ -41,6 +41,7 @@ class HolidayShoppingModel(BaseModel):
     suggestions: Optional[str] = None
     memorable_story: Optional[str] = None
     cultural_significance: Optional[str] = None
+    holiday_tradition: Optional[str] = None
     shopping_reason: Optional[str] = None
     cover_image: Optional[str] = None
     item_images: Optional[Any] = None
@@ -94,6 +95,7 @@ class HolidayShoppingCreate(BaseModel):
     suggestions: Optional[str] = None
     memorable_story: Optional[str] = None
     cultural_significance: Optional[str] = None
+    holiday_tradition: Optional[str] = None
     shopping_reason: Optional[str] = None
     cover_image: Optional[str] = None
     item_images: Optional[Any] = None
@@ -146,6 +148,7 @@ class HolidayShoppingUpdate(BaseModel):
     suggestions: Optional[str] = None
     memorable_story: Optional[str] = None
     cultural_significance: Optional[str] = None
+    holiday_tradition: Optional[str] = None
     shopping_reason: Optional[str] = None
     cover_image: Optional[str] = None
     item_images: Optional[Any] = None

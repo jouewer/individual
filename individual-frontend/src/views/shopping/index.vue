@@ -121,77 +121,302 @@
     </div>
 
     <!-- 添加或修改对话框 -->
-    <el-dialog :title="title" v-model="open" width="600px" append-to-body>
-      <el-form ref="shoppingRef" :model="form" :rules="rules" label-width="80px">
-        <el-form-item label="商品名称" prop="shoppingName">
-          <el-input v-model="form.shoppingName" placeholder="请输入商品名称" />
-        </el-form-item>
-        <el-form-item label="节日名称" prop="holidayName">
-          <el-input v-model="form.holidayName" placeholder="请输入节日名称" />
-        </el-form-item>
-        <el-form-item label="节日日期" prop="holidayDate">
-           <el-date-picker
-            v-model="form.holidayDate"
-            type="date"
-            placeholder="选择日期"
-            value-format="YYYY-MM-DD"
-            style="width: 100%"
-          />
-        </el-form-item>
-        <el-form-item label="商品分类" prop="itemCategory">
-           <el-select v-model="form.itemCategory" placeholder="请选择商品分类">
-             <el-option v-for="item in categoryOptions" :key="item" :label="item" :value="item" />
-           </el-select>
-        </el-form-item>
-        <el-form-item label="商品类型" prop="itemType">
-            <el-select v-model="form.itemType" placeholder="请选择商品类型">
-             <el-option v-for="item in typeOptions" :key="item" :label="item" :value="item" />
-           </el-select>
-        </el-form-item>
-         <el-form-item label="购买状态" prop="purchaseStatus">
-           <el-select v-model="form.purchaseStatus" placeholder="请选择状态">
-             <el-option label="计划中" value="计划中" />
-             <el-option label="待购买" value="待购买" />
-             <el-option label="已下单" value="已下单" />
-             <el-option label="运输中" value="运输中" />
-             <el-option label="已收到" value="已收到" />
-             <el-option label="已退货" value="已退货" />
-             <el-option label="已取消" value="已取消" />
-           </el-select>
-        </el-form-item>
-        <el-row>
-          <el-col :span="12">
-            <el-form-item label="预期价格" prop="expectedPrice">
-              <el-input-number v-model="form.expectedPrice" :min="0" :precision="2" :step="10" />
+    <el-dialog :title="title" v-model="open" width="800px" append-to-body>
+      <el-form ref="shoppingRef" :model="form" :rules="rules" label-width="100px">
+        <el-tabs v-model="activeTab">
+          <!-- 基本信息 Tab -->
+          <el-tab-pane label="基本信息" name="basic">
+            <el-row :gutter="20">
+              <el-col :span="12">
+                <el-form-item label="商品名称" prop="shoppingName">
+                  <el-input v-model="form.shoppingName" placeholder="请输入商品名称" />
+                </el-form-item>
+              </el-col>
+              <el-col :span="12">
+                <el-form-item label="节日名称" prop="holidayName">
+                  <el-input v-model="form.holidayName" placeholder="请输入节日名称" />
+                </el-form-item>
+              </el-col>
+            </el-row>
+            <el-row :gutter="20">
+              <el-col :span="12">
+                <el-form-item label="节日日期" prop="holidayDate">
+                  <el-date-picker
+                    v-model="form.holidayDate"
+                    type="date"
+                    placeholder="选择日期"
+                    value-format="YYYY-MM-DD"
+                    style="width: 100%"
+                  />
+                </el-form-item>
+              </el-col>
+              <el-col :span="12">
+                <el-form-item label="送给谁" prop="itemForWhom">
+                  <el-input v-model="form.itemForWhom" placeholder="请输入送给谁" />
+                </el-form-item>
+              </el-col>
+            </el-row>
+            <el-row :gutter="20">
+              <el-col :span="12">
+                <el-form-item label="商品分类" prop="itemCategory">
+                  <el-select v-model="form.itemCategory" placeholder="请选择商品分类">
+                    <el-option v-for="item in categoryOptions" :key="item" :label="item" :value="item" />
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="12">
+                <el-form-item label="商品类型" prop="itemType">
+                  <el-select v-model="form.itemType" placeholder="请选择商品类型">
+                    <el-option v-for="item in typeOptions" :key="item" :label="item" :value="item" />
+                  </el-select>
+                </el-form-item>
+              </el-col>
+            </el-row>
+            <el-form-item label="封面图片" prop="coverImage">
+              <image-upload v-model="form.coverImage" :limit="1" />
             </el-form-item>
-          </el-col>
-          <el-col :span="12">
-            <el-form-item label="实际价格" prop="actualPrice">
-              <el-input-number v-model="form.actualPrice" :min="0" :precision="2" :step="10" />
+            <el-form-item label="物品图片" prop="itemImages">
+              <image-upload v-model="form.itemImages" :limit="9" />
             </el-form-item>
-          </el-col>
-        </el-row>
-         <el-row>
-          <el-col :span="12">
-            <el-form-item label="数量" prop="quantity">
-              <el-input-number v-model="form.quantity" :min="1" />
+            <el-form-item label="购物截图" prop="shoppingScreenshots">
+              <image-upload v-model="form.shoppingScreenshots" :limit="9" />
             </el-form-item>
-          </el-col>
-           <el-col :span="12">
-             <el-form-item label="送给谁" prop="itemForWhom">
-               <el-input v-model="form.itemForWhom" />
-             </el-form-item>
-           </el-col>
-        </el-row>
-        <el-form-item label="购买链接" prop="purchaseLink">
-          <el-input v-model="form.purchaseLink" placeholder="请输入购买链接" />
-        </el-form-item>
-        <el-form-item label="封面图片" prop="coverImage">
-          <el-input v-model="form.coverImage" placeholder="请输入图片URL" />
-        </el-form-item>
-        <el-form-item label="购买理由" prop="shoppingReason">
-          <el-input v-model="form.shoppingReason" type="textarea" placeholder="请输入购买理由" />
-        </el-form-item>
+            <el-form-item label="购买理由" prop="shoppingReason">
+              <el-input v-model="form.shoppingReason" type="textarea" placeholder="请输入购买理由" />
+            </el-form-item>
+          </el-tab-pane>
+
+          <!-- 购买详情 Tab -->
+          <el-tab-pane label="购买详情" name="purchase">
+            <el-row :gutter="20">
+              <el-col :span="12">
+                <el-form-item label="购买状态" prop="purchaseStatus">
+                  <el-select v-model="form.purchaseStatus" placeholder="请选择状态">
+                    <el-option v-for="item in purchaseStatusOptions" :key="item" :label="item" :value="item" />
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="12">
+                <el-form-item label="购买时机" prop="purchaseTiming">
+                  <el-select v-model="form.purchaseTiming" placeholder="请选择购买时机">
+                    <el-option v-for="item in purchaseTimingOptions" :key="item" :label="item" :value="item" />
+                  </el-select>
+                </el-form-item>
+              </el-col>
+            </el-row>
+            <el-row :gutter="20">
+              <el-col :span="12">
+                <el-form-item label="购买方式" prop="purchaseMethod">
+                  <el-select v-model="form.purchaseMethod" placeholder="请选择购买方式">
+                    <el-option v-for="item in purchaseMethodOptions" :key="item" :label="item" :value="item" />
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="12">
+                 <el-form-item label="店铺类型" prop="storeType">
+                  <el-select v-model="form.storeType" placeholder="请选择店铺类型">
+                    <el-option v-for="item in storeTypeOptions" :key="item" :label="item" :value="item" />
+                  </el-select>
+                </el-form-item>
+              </el-col>
+            </el-row>
+            <el-form-item label="店铺名称" prop="storeName">
+              <el-input v-model="form.storeName" placeholder="请输入店铺名称" />
+            </el-form-item>
+            <el-form-item label="购买链接" prop="purchaseLink">
+              <el-input v-model="form.purchaseLink" placeholder="请输入购买链接" />
+            </el-form-item>
+            <el-row :gutter="20">
+              <el-col :span="8">
+                <el-form-item label="预期价格" prop="expectedPrice">
+                  <el-input-number v-model="form.expectedPrice" :min="0" :precision="2" :step="10" style="width: 100%" />
+                </el-form-item>
+              </el-col>
+              <el-col :span="8">
+                <el-form-item label="实际价格" prop="actualPrice">
+                  <el-input-number v-model="form.actualPrice" :min="0" :precision="2" :step="10" style="width: 100%" />
+                </el-form-item>
+              </el-col>
+              <el-col :span="8">
+                <el-form-item label="货币" prop="currency">
+                   <el-input v-model="form.currency" placeholder="如CNY" />
+                </el-form-item>
+              </el-col>
+            </el-row>
+            <el-row :gutter="20">
+              <el-col :span="12">
+                <el-form-item label="数量" prop="quantity">
+                  <el-input-number v-model="form.quantity" :min="1" style="width: 100%" />
+                </el-form-item>
+              </el-col>
+              <el-col :span="12">
+                <el-form-item label="单位" prop="unit">
+                  <el-input v-model="form.unit" placeholder="如：个/件" />
+                </el-form-item>
+              </el-col>
+            </el-row>
+             <el-row :gutter="20">
+              <el-col :span="12">
+                <el-form-item label="下单日期" prop="orderDate">
+                  <el-date-picker
+                    v-model="form.orderDate"
+                    type="date"
+                    placeholder="选择下单日期"
+                    value-format="YYYY-MM-DD"
+                    style="width: 100%"
+                  />
+                </el-form-item>
+              </el-col>
+              <el-col :span="12">
+                <el-form-item label="收货日期" prop="receiveDate">
+                  <el-date-picker
+                    v-model="form.receiveDate"
+                    type="date"
+                    placeholder="选择收货日期"
+                    value-format="YYYY-MM-DD"
+                    style="width: 100%"
+                  />
+                </el-form-item>
+              </el-col>
+            </el-row>
+          </el-tab-pane>
+
+          <!-- 反馈与评价 Tab -->
+          <el-tab-pane label="反馈与评价" name="feedback">
+            <el-row :gutter="20">
+              <el-col :span="8">
+                <el-form-item label="购买体验" prop="purchaseExperience">
+                  <el-select v-model="form.purchaseExperience" placeholder="请选择">
+                    <el-option v-for="item in purchaseExperienceOptions" :key="item" :label="item" :value="item" />
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="8">
+                <el-form-item label="配送速度" prop="deliverySpeed">
+                  <el-select v-model="form.deliverySpeed" placeholder="请选择">
+                    <el-option v-for="item in deliverySpeedOptions" :key="item" :label="item" :value="item" />
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="8">
+                <el-form-item label="包装质量" prop="packagingQuality">
+                   <el-select v-model="form.packagingQuality" placeholder="请选择">
+                    <el-option v-for="item in packagingQualityOptions" :key="item" :label="item" :value="item" />
+                  </el-select>
+                </el-form-item>
+              </el-col>
+            </el-row>
+             <el-row :gutter="20">
+              <el-col :span="8">
+                <el-form-item label="物品质量" prop="itemQuality">
+                   <el-select v-model="form.itemQuality" placeholder="请选择">
+                    <el-option v-for="item in itemQualityOptions" :key="item" :label="item" :value="item" />
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="8">
+                <el-form-item label="喜爱程度" prop="likingLevel">
+                   <el-select v-model="form.likingLevel" placeholder="请选择">
+                    <el-option v-for="item in likingLevelOptions" :key="item" :label="item" :value="item" />
+                  </el-select>
+                </el-form-item>
+              </el-col>
+              <el-col :span="8">
+                <el-form-item label="使用频率" prop="usageFrequency">
+                   <el-select v-model="form.usageFrequency" placeholder="请选择">
+                    <el-option v-for="item in usageFrequencyOptions" :key="item" :label="item" :value="item" />
+                  </el-select>
+                </el-form-item>
+              </el-col>
+            </el-row>
+            <el-form-item label="优点" prop="pros">
+              <el-input v-model="form.pros" type="textarea" placeholder="请输入优点" />
+            </el-form-item>
+            <el-form-item label="缺点" prop="cons">
+              <el-input v-model="form.cons" type="textarea" placeholder="请输入缺点" />
+            </el-form-item>
+             <el-form-item label="建议" prop="suggestions">
+              <el-input v-model="form.suggestions" type="textarea" placeholder="请输入建议" />
+            </el-form-item>
+             <el-form-item label="有趣故事" prop="memorableStory">
+              <el-input v-model="form.memorableStory" type="textarea" placeholder="请输入有趣故事" />
+            </el-form-item>
+          </el-tab-pane>
+
+          <!-- 其他信息 Tab -->
+          <el-tab-pane label="其他信息" name="other">
+             <el-row :gutter="20">
+              <el-col :span="12">
+                 <el-form-item label="预算分类" prop="budgetCategory">
+                   <el-input v-model="form.budgetCategory" placeholder="请输入预算分类" />
+                </el-form-item>
+              </el-col>
+              <el-col :span="12">
+                <el-form-item label="总花费" prop="totalSpent">
+                   <el-input-number v-model="form.totalSpent" :min="0" :precision="2" :step="10" style="width: 100%" />
+                </el-form-item>
+              </el-col>
+            </el-row>
+             <el-row :gutter="20">
+              <el-col :span="12">
+                <el-form-item label="是否在预算内" prop="isInBudget">
+                  <el-switch v-model="form.isInBudget" :active-value="1" :inactive-value="0" />
+                </el-form-item>
+              </el-col>
+               <el-col :span="12">
+                <el-form-item label="是否有效" prop="isActive">
+                  <el-switch v-model="form.isActive" :active-value="1" :inactive-value="0" />
+                </el-form-item>
+              </el-col>
+            </el-row>
+            <el-row :gutter="20">
+               <el-col :span="12">
+                <el-form-item label="提醒日期" prop="reminderDate">
+                  <el-date-picker
+                    v-model="form.reminderDate"
+                    type="date"
+                    placeholder="选择提醒日期"
+                    value-format="YYYY-MM-DD"
+                    style="width: 100%"
+                  />
+                </el-form-item>
+              </el-col>
+               <el-col :span="12">
+                 <el-form-item label="重复频率" prop="repeatFrequency">
+                   <el-select v-model="form.repeatFrequency" placeholder="请选择">
+                    <el-option v-for="item in repeatFrequencyOptions" :key="item" :label="item" :value="item" />
+                  </el-select>
+                </el-form-item>
+               </el-col>
+            </el-row>
+             <el-row :gutter="20">
+              <el-col :span="8">
+                <el-form-item label="重复购买" prop="isRepeatPurchase">
+                  <el-switch v-model="form.isRepeatPurchase" :active-value="1" :inactive-value="0" />
+                </el-form-item>
+              </el-col>
+              <el-col :span="8">
+                <el-form-item label="分享给家人" prop="shareWithFamily">
+                   <el-switch v-model="form.shareWithFamily" :active-value="1" :inactive-value="0" />
+                </el-form-item>
+              </el-col>
+              <el-col :span="8">
+                <el-form-item label="分享给朋友" prop="shareWithFriends">
+                   <el-switch v-model="form.shareWithFriends" :active-value="1" :inactive-value="0" />
+                </el-form-item>
+              </el-col>
+            </el-row>
+            <el-form-item label="节日传统" prop="holidayTradition">
+              <el-input v-model="form.holidayTradition" type="textarea" placeholder="请输入节日传统" />
+            </el-form-item>
+             <el-form-item label="文化意义" prop="culturalSignificance">
+              <el-input v-model="form.culturalSignificance" type="textarea" placeholder="请输入文化意义" />
+            </el-form-item>
+            <el-form-item label="开箱视频" prop="unboxingVideos">
+              <el-input v-model="form.unboxingVideos" placeholder="请输入视频URL" />
+            </el-form-item>
+          </el-tab-pane>
+        </el-tabs>
       </el-form>
       <template #footer>
         <div class="dialog-footer">
@@ -219,6 +444,19 @@ const total = ref(0);
 
 const categoryOptions = ["食品", "礼品", "装饰品", "服装", "家居用品", "电子产品", "其他"];
 const typeOptions = ["用的", "吃的", "穿的", "玩的", "送的", "装饰的"];
+const purchaseStatusOptions = ['计划中', '待购买', '已下单', '运输中', '已收到', '已退货', '已取消'];
+const purchaseTimingOptions = ['提前1个月', '提前2周', '提前1周', '节日当天', '节日后'];
+const purchaseMethodOptions = ['线上', '线下', '海外代购', '定制'];
+const storeTypeOptions = ['天猫', '京东', '淘宝', '拼多多', '实体店', '超市', '专卖店', '其他'];
+const purchaseExperienceOptions = ['非常满意', '满意', '一般', '不满意', '很差'];
+const deliverySpeedOptions = ['很快', '正常', '较慢', '很慢'];
+const packagingQualityOptions = ['很好', '一般', '简陋', '破损'];
+const itemQualityOptions = ['非常好', '好', '一般', '差', '很差'];
+const likingLevelOptions = ['非常喜欢', '喜欢', '一般', '不喜欢', '讨厌'];
+const usageFrequencyOptions = ['每天使用', '经常使用', '偶尔使用', '很少使用', '未使用'];
+const repeatFrequencyOptions = ['每年', '每季', '每次节日', '不重复'];
+
+const activeTab = ref('basic');
 
 const data = reactive({
   form: {},
@@ -290,6 +528,16 @@ function reset() {
     purchaseStatus: '计划中',
     shoppingReason: null,
     coverImage: null,
+    itemImages: null,
+    shoppingScreenshots: null,
+    unboxingVideos: null,
+    pros: null,
+    cons: null,
+    suggestions: null,
+    memorableStory: null,
+    holidayTradition: null,
+    culturalSignificance: null,
+    isInBudget: 1,
     isRepeatPurchase: 0,
     shareWithFamily: 0,
     shareWithFriends: 0,
@@ -313,6 +561,7 @@ function resetQuery() {
 /** 新增按钮操作 */
 function handleAdd() {
   reset();
+  activeTab.value = 'basic';
   open.value = true;
   title.value = "添加节日购物";
 }
@@ -323,6 +572,7 @@ function handleUpdate(row) {
   const id = row.id;
   getShopping(id).then(response => {
     form.value = response.data;
+    activeTab.value = 'basic';
     open.value = true;
     title.value = "修改节日购物";
   });

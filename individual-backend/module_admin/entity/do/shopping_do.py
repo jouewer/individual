@@ -42,6 +42,7 @@ class HolidayShopping(Base):
     suggestions = Column(Text, nullable=True, comment='建议')
     memorable_story = Column(Text, nullable=True, comment='难忘故事')
     cultural_significance = Column(Text, nullable=True, comment='文化意义')
+    holiday_tradition = Column(Text, nullable=True, comment='节日传统')
     shopping_reason = Column(Text, nullable=True, comment='购买理由')
     cover_image = Column(String(500), nullable=True, comment='封面图片')
     item_images = Column(JSON, nullable=True, comment='商品图片')

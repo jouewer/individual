@@ -1,0 +1,67 @@
+from pydantic import BaseModel, Field, ConfigDict
+from pydantic.alias_generators import to_camel
+from datetime import datetime
+from typing import Optional, Any
+from module_admin.annotation.pydantic_annotation import as_query
+
+@as_query
+class DetectionQuery(BaseModel):
+    model_config = ConfigDict(alias_generator=to_camel)
+
+    detection_type: Optional[str] = Field(default=None, description='检测类型')
+    emotion_type: Optional[str] = Field(default=None, description='表情类型')
+    action_type: Optional[str] = Field(default=None, description='动作类型')
+    person_type: Optional[str] = Field(default=None, description='人员类型')
+    safety_level: Optional[str] = Field(default=None, description='安全等级')
+    event_type: Optional[str] = Field(default=None, description='事件类型')
+    page_num: int = Field(default=1, description='当前页码')
+    page_size: int = Field(default=10, description='每页数量')
+
+class DetectionModel(BaseModel):
+    model_config = ConfigDict(from_attributes=True, alias_generator=to_camel)
+
+    id: Optional[int] = Field(default=None, description='主键ID')
+    user_id: Optional[int] = Field(default=None, description='用户ID')
+    detection_time: Optional[datetime] = Field(default=None, description='检测时间')
+    media_path: Optional[str] = Field(default=None, description='媒体文件路径')
+    media_type: Optional[str] = Field(default=None, description='媒体类型')
+    detection_type: Optional[str] = Field(default=None, description='检测类型')
+    emotion_type: Optional[str] = Field(default=None, description='表情类型')
+    emotion_confidence: Optional[float] = Field(default=None, description='表情置信度')
+    emotion_bbox: Optional[Any] = Field(default=None, description='表情检测边界框')
+    action_type: Optional[str] = Field(default=None, description='动作类型')
+    action_confidence: Optional[float] = Field(default=None, description='动作置信度')
+    action_bbox: Optional[Any] = Field(default=None, description='动作检测边界框')
+    fall_direction: Optional[str] = Field(default=None, description='摔倒方向')
+    fall_severity: Optional[str] = Field(default=None, description='摔倒严重程度')
+    recovery_time_seconds: Optional[int] = Field(default=None, description='恢复时间(秒)')
+    is_getting_up: Optional[bool] = Field(default=None, description='是否正在起身')
+    person_type: Optional[str] = Field(default=None, description='人员类型')
+    person_name: Optional[str] = Field(default=None, description='人员姓名')
+    person_identifier: Optional[str] = Field(default=None, description='人员标识符')
+    person_confidence: Optional[float] = Field(default=None, description='人物识别置信度')
+    estimated_age: Optional[int] = Field(default=None, description='估计年龄')
+    estimated_gender: Optional[str] = Field(default=None, description='估计性别')
+    clothing_color: Optional[str] = Field(default=None, description='服装主色')
+    accessories: Optional[Any] = Field(default=None, description='配饰')
+    is_self: Optional[bool] = Field(default=None, description='是否本人')
+    relationship_level: Optional[str] = Field(default=None, description='关系程度')
+    is_trusted: Optional[bool] = Field(default=None, description='是否可信人员')
+    is_blacklist: Optional[bool] = Field(default=None, description='是否黑名单')
+    location_name: Optional[str] = Field(default=None, description='检测地点')
+    environment: Optional[str] = Field(default=None, description='环境类型')
+    scene_context: Optional[str] = Field(default=None, description='场景描述')
+    safety_level: Optional[str] = Field(default=None, description='安全等级')
+    anomaly_score: Optional[float] = Field(default=None, description='异常分数(0-1)')
+    event_type: Optional[str] = Field(default=None, description='事件类型')
+    event_description: Optional[str] = Field(default=None, description='事件描述')
+    detection_count: Optional[int] = Field(default=None, description='该人员检测次数')
+    first_detected_time: Optional[datetime] = Field(default=None, description='首次检测时间')
+    last_detected_time: Optional[datetime] = Field(default=None, description='最后检测时间')
+    detector_model: Optional[str] = Field(default=None, description='检测模型')
+    detector_version: Optional[str] = Field(default=None, description='检测器版本')
+    raw_data: Optional[Any] = Field(default=None, description='原始检测数据')
+    requires_attention: Optional[bool] = Field(default=None, description='需要人工关注')
+    is_verified: Optional[bool] = Field(default=None, description='是否已验证')
+    verification_notes: Optional[str] = Field(default=None, description='验证备注')
+    create_time: Optional[datetime] = Field(default=None, description='创建时间')

@@ -1,0 +1,56 @@
+from sqlalchemy import Column, String, DateTime, DECIMAL, Text, BigInteger, Integer, JSON, Boolean
+from config.database import Base
+from datetime import datetime
+
+class ComprehensiveDetection(Base):
+    """
+    综合检测表
+    """
+    __tablename__ = 'comprehensive_detections'
+
+    id = Column(BigInteger, primary_key=True, autoincrement=True, comment='主键ID')
+    user_id = Column(BigInteger, nullable=False, comment='用户ID')
+    detection_time = Column(DateTime, nullable=False, comment='检测时间')
+    media_path = Column(String(500), nullable=False, comment='媒体文件路径')
+    media_type = Column(String(20), nullable=False, default='图片', comment='媒体类型')
+    detection_type = Column(String(50), nullable=False, comment='检测类型')
+    emotion_type = Column(String(50), default='未检测', comment='表情类型')
+    emotion_confidence = Column(DECIMAL(4, 3), nullable=True, comment='表情置信度')
+    emotion_bbox = Column(JSON, nullable=True, comment='表情检测边界框')
+    action_type = Column(String(50), default='未检测', comment='动作类型')
+    action_confidence = Column(DECIMAL(4, 3), nullable=True, comment='动作置信度')
+    action_bbox = Column(JSON, nullable=True, comment='动作检测边界框')
+    fall_direction = Column(String(50), nullable=True, comment='摔倒方向')
+    fall_severity = Column(String(50), nullable=True, comment='摔倒严重程度')
+    recovery_time_seconds = Column(Integer, nullable=True, comment='恢复时间(秒)')
+    is_getting_up = Column(Boolean, nullable=True, comment='是否正在起身')
+    person_type = Column(String(50), default='未检测', comment='人员类型')
+    person_name = Column(String(100), nullable=True, comment='人员姓名')
+    person_identifier = Column(String(100), nullable=True, comment='人员标识符')
+    person_confidence = Column(DECIMAL(4, 3), nullable=True, comment='人物识别置信度')
+    estimated_age = Column(Integer, nullable=True, comment='估计年龄')
+    estimated_gender = Column(String(10), nullable=True, comment='估计性别')
+    clothing_color = Column(String(20), nullable=True, comment='服装主色')
+    accessories = Column(JSON, nullable=True, comment='配饰')
+    is_self = Column(Boolean, default=False, comment='是否本人')
+    relationship_level = Column(String(50), default='未知', comment='关系程度')
+    is_trusted = Column(Boolean, default=False, comment='是否可信人员')
+    is_blacklist = Column(Boolean, default=False, comment='是否黑名单')
+    location_name = Column(String(100), nullable=True, comment='检测地点')
+    environment = Column(String(50), nullable=True, comment='环境类型')
+    scene_context = Column(String(200), nullable=True, comment='场景描述')
+    safety_level = Column(String(20), default='安全', comment='安全等级')
+    anomaly_score = Column(DECIMAL(3, 2), default=0.00, comment='异常分数(0-1)')
+    event_type = Column(String(50), default='正常', comment='事件类型')
+    event_description = Column(Text, nullable=True, comment='事件描述')
+    detection_count = Column(Integer, default=1, comment='该人员检测次数')
+    first_detected_time = Column(DateTime, nullable=True, comment='首次检测时间')
+    last_detected_time = Column(DateTime, nullable=True, comment='最后检测时间')
+    detector_model = Column(String(50), nullable=True, comment='检测模型')
+    detector_version = Column(String(20), nullable=True, comment='检测器版本')
+    raw_data = Column(JSON, nullable=True, comment='原始检测数据')
+    requires_attention = Column(Boolean, default=False, comment='需要人工关注')
+    is_verified = Column(Boolean, default=False, comment='是否已验证')
+    verification_notes = Column(Text, nullable=True, comment='验证备注')
+    create_time = Column(DateTime, default=datetime.now, comment='创建时间')
+    update_time = Column(DateTime, default=datetime.now, onupdate=datetime.now, comment='更新时间')

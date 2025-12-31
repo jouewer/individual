@@ -188,6 +188,19 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/study',
+    component: Layout,
+    redirect: '/study/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/study/index'),
+        name: 'Study',
+        meta: { title: '学习任务', icon: 'skill', noCache: true }
+      }
+    ]
+  },
+  {
     path: '/user',
     component: Layout,
     hidden: true,

@@ -17,14 +17,17 @@ class PlantService:
     @classmethod
     async def add_plant(cls, db: AsyncSession, plant: PlantModel):
         await PlantDao.add_plant(db, plant)
+        await db.commit()
         return True
 
     @classmethod
     async def update_plant(cls, db: AsyncSession, plant: PlantModel):
         await PlantDao.update_plant(db, plant)
+        await db.commit()
         return True
 
     @classmethod
     async def delete_plant(cls, db: AsyncSession, plant_id: int):
         await PlantDao.delete_plant(db, plant_id)
+        await db.commit()
         return True

@@ -1,17 +1,17 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryRef" :inline="true" v-show="showSearch" label-width="68px">
-      <el-form-item label="植物名称" prop="plantName">
+      <el-form-item label="植物名称" prop="plant_name">
         <el-input
-          v-model="queryParams.plantName"
+          v-model="queryParams.plant_name"
           placeholder="请输入植物名称"
           clearable
           style="width: 240px"
           @keyup.enter="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="生长阶段" prop="growthStage">
-        <el-select v-model="queryParams.growthStage" placeholder="请选择生长阶段" clearable style="width: 240px">
+      <el-form-item label="生长阶段" prop="growth_stage">
+        <el-select v-model="queryParams.growth_stage" placeholder="请选择生长阶段" clearable style="width: 240px">
           <el-option label="发芽期" value="发芽期" />
           <el-option label="幼苗期" value="幼苗期" />
           <el-option label="生长期" value="生长期" />
@@ -413,41 +413,13 @@
           <!-- 11. 媒体资料 -->
           <el-tab-pane label="媒体资料">
             <el-divider content-position="left">生长图片</el-divider>
-            <div class="media-list" v-if="form.growthImages && form.growthImages.length">
-               <el-image 
-                 v-for="(img, index) in form.growthImages" 
-                 :key="index" 
-                 :src="img" 
-                 :preview-src-list="form.growthImages"
-                 fit="cover"
-                 class="media-item"
-               />
-            </div>
-            <el-empty v-else description="暂无生长图片" :image-size="60"></el-empty>
+            <ImageUpload v-model="form.growthImages" :limit="10" />
 
             <el-divider content-position="left">教程图片</el-divider>
-             <div class="media-list" v-if="form.tutorialImages && form.tutorialImages.length">
-               <el-image 
-                 v-for="(img, index) in form.tutorialImages" 
-                 :key="index" 
-                 :src="img" 
-                 :preview-src-list="form.tutorialImages"
-                 fit="cover"
-                 class="media-item"
-               />
-            </div>
-            <el-empty v-else description="暂无教程图片" :image-size="60"></el-empty>
+            <ImageUpload v-model="form.tutorialImages" :limit="10" />
 
             <el-divider content-position="left">养护视频</el-divider>
-            <div class="video-list" v-if="form.careVideos && form.careVideos.length">
-               <div v-for="(video, index) in form.careVideos" :key="index" class="video-item">
-                  <video controls width="100%" height="200">
-                    <source :src="video" type="video/mp4">
-                    您的浏览器不支持视频播放。
-                  </video>
-               </div>
-            </div>
-             <el-empty v-else description="暂无养护视频" :image-size="60"></el-empty>
+            <VideoUpload v-model="form.careVideos" :limit="5" />
           </el-tab-pane>
         </el-tabs>
       </el-form>
@@ -466,6 +438,8 @@ import { listPlant, getPlant, delPlant, addPlant, updatePlant } from "@/api/plan
 import { getCurrentInstance, reactive, ref, toRefs } from "vue";
 import { parseTime } from "@/utils/ruoyi";
 import { Picture, Location } from '@element-plus/icons-vue'
+
+import VideoUpload from "@/components/VideoUpload";
 
 const { proxy } = getCurrentInstance();
 
@@ -496,12 +470,18 @@ const data = reactive({
   queryParams: {
     page_num: 1,
     page_size: 12, // 卡片布局每页显示更多一点
-    plantName: undefined,
-    growthStage: undefined
+    plant_name: undefined,
+    growth_stage: undefined
   },
   rules: {
     plantName: [
       { required: true, message: "植物名称不能为空", trigger: "blur" }
+    ],
+    plantType: [
+      { required: true, message: "植物类型不能为空", trigger: "change" }
+    ],
+    plantDate: [
+      { required: true, message: "种植日期不能为空", trigger: "change" }
     ],
     growthStage: [
       { required: true, message: "生长阶段不能为空", trigger: "change" }
@@ -622,9 +602,17 @@ function handleUpdate(row) {
     const ensureArray = (key) => {
       if (typeof form.value[key] === 'string') {
         try {
-          form.value[key] = JSON.parse(form.value[key]);
+          // 尝试解析JSON
+          const parsed = JSON.parse(form.value[key]);
+          if (Array.isArray(parsed)) {
+            form.value[key] = parsed;
+          } else {
+            // 如果解析出来不是数组（可能是JSON字符串），尝试逗号分隔
+            form.value[key] = form.value[key].split(',').filter(item => item);
+          }
         } catch (e) {
-          form.value[key] = [];
+          // 解析失败，说明是普通字符串，使用逗号分隔
+          form.value[key] = form.value[key].split(',').filter(item => item);
         }
       } else if (!form.value[key]) {
         form.value[key] = [];
@@ -654,14 +642,27 @@ function handleDelete(row) {
 function submitForm() {
   proxy.$refs["plantRef"].validate(valid => {
     if (valid) {
+      // 构造提交数据，处理图片和视频字段为数组
+      const submitData = { ...form.value };
+      const processArrayField = (key) => {
+        if (typeof submitData[key] === 'string' && submitData[key]) {
+          submitData[key] = submitData[key].split(',');
+        } else if (!submitData[key]) {
+          submitData[key] = [];
+        }
+      };
+      processArrayField('growthImages');
+      processArrayField('tutorialImages');
+      processArrayField('careVideos');
+
       if (form.value.id != undefined) {
-        updatePlant(form.value).then(response => {
+        updatePlant(submitData).then(response => {
           proxy.$modal.msgSuccess("修改成功");
           open.value = false;
           getList();
         });
       } else {
-        addPlant(form.value).then(response => {
+        addPlant(submitData).then(response => {
           proxy.$modal.msgSuccess("新增成功");
           open.value = false;
           getList();

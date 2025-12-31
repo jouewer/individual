@@ -2,7 +2,9 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from config.get_db import get_db
 from module_admin.service.plant_service import PlantService
+from module_admin.service.login_service import LoginService
 from module_admin.entity.vo.plant_vo import PlantQuery, PlantModel
+from module_admin.entity.vo.user_vo import CurrentUserModel
 from utils.response_util import ResponseUtil
 
 plantController = APIRouter(prefix='/plant')
@@ -34,7 +36,12 @@ async def get_plant(plant_id: int, db: AsyncSession = Depends(get_db)):
     return ResponseUtil.success(data=result)
 
 @plantController.post('')
-async def add_plant(plant: PlantModel, db: AsyncSession = Depends(get_db)):
+async def add_plant(
+    plant: PlantModel,
+    db: AsyncSession = Depends(get_db),
+    current_user: CurrentUserModel = Depends(LoginService.get_current_user)
+):
+    plant.user_id = current_user.user.user_id
     await PlantService.add_plant(db, plant)
     return ResponseUtil.success()
 

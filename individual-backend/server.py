@@ -30,6 +30,8 @@ from module_admin.controller.plant_controller import plantController
 from module_admin.controller.shopping_controller import shoppingController
 from module_admin.controller.device_controller import deviceController
 from module_admin.controller.detection_controller import detectionController
+from module_admin.controller.exam_controller import examController
+from module_admin.controller.learning_task_controller import learning_task_controller
 from module_generator.controller.gen_controller import genController
 from sub_applications.handle import handle_sub_applications
 from utils.common_util import worship
@@ -94,6 +96,8 @@ controller_list = [
     {'router': shoppingController, 'tags': ['节日购物模块']},
     {'router': deviceController, 'tags': ['电子设备模块']},
     {'router': detectionController, 'tags': ['综合检测模块']},
+    {'router': examController, 'tags': ['综合考试模块']},
+    {'router': learning_task_controller, 'tags': ['学习任务模块']},
     {'router': genController, 'tags': ['代码生成']},
 ]
 

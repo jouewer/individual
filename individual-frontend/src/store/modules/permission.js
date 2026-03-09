@@ -36,6 +36,10 @@ const usePermissionStore = defineStore(
         return new Promise(resolve => {
           // 向后端请求路由数据
           getRouters().then(res => {
+            // 过滤掉若依官网
+            if (res.data) {
+              res.data = res.data.filter(item => item.name !== '若依官网' && item.meta?.title !== '若依官网' && item.path !== 'http://ruoyi.vip')
+            }
             const sdata = JSON.parse(JSON.stringify(res.data))
             const rdata = JSON.parse(JSON.stringify(res.data))
             const defaultData = JSON.parse(JSON.stringify(res.data))
